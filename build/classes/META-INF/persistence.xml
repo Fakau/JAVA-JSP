@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="INUTECH" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>com.inutech.model.AnneeAcademique</class>
+		<class>com.inutech.model.Etudiant</class>
+		<class>com.inutech.model.Niveau</class>
+		<class>com.inutech.model.Option</class>
+		<class>com.inutech.model.TypeAcademique</class>
+		<class>com.inutech.model.Utilisateur</class>
+		<class>com.inutech.model.Vacation</class>
+		
+		<exclude-unlisted-classes />
+		
+		<properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <!-- local -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/javaweb" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" /> 
+                     
+            <property name="javax.persistence.validation.mode" value="NONE"/>           
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+            <property name="hibernate.connection.pool_size" value="0" />
+			<property name="hibernate.connection.useUnicode" value="true"/>
+			<property name="hibernate.connection.charSet" value="UTF-8"/>
+			<property name="hibernate.bytecode.provider" value="javassist"/>
+<!-- 			<property name="hibernate.bytecode.use_reflection_optimizer" value="true"/> -->
+			<property name="hibernate.jdbc.use_streams_for_binary" value="true"/>
+			<property name="hibernate.cache.use_query_cache" value="false"/>
+			<property name="hibernate.cache.use_second_level_cache" value="false"/>
+			
+			<!-- DEV -->
+			 <property name="hibernate.hbm2ddl.auto" value="update" />  
+			<property name="hibernate.show_sql" value="false"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.generate_statistics" value="true"/>
+			<property name="hibernate.use_sql_comments" value="true"/>
+			
+			<!-- PROD -->
+			<property name="hibernate.show_sql" value="true"/>
+<!-- 			<property name="hibernate.format_sql" value="false"/> -->
+<!-- 			<property name="hibernate.generate_statistics" value="false"/> -->
+<!-- 			<property name="hibernate.use_sql_comments" value="false"/> -->
+        </properties>
+	</persistence-unit>
+</persistence>
